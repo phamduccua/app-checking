@@ -1,0 +1,196 @@
+/* ====== Layout cơ bản ====== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;  /* danh sách ở giữa theo trục dọc */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ====== Card danh sách ====== */
+.list-container {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;                /* bỏ mờ 0.04 để chữ không “bạc” */
+  border-radius: 14px;
+  padding: 28px 22px;
+  margin-top: 0;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Tiêu đề: đậm – rõ – tương phản mạnh */
+.list-container h2 {
+  font-size: 24px;
+  font-weight: 900;
+  color: #0b0b0b;        /* đen đậm, không còn nhạt xanh */
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  opacity: 1;            /* chắc chắn không bị giảm opacity */
+  text-shadow: none;
+  filter: none;
+}
+
+/* ====== Nút danh sách (hỗ trợ icon trong <button><img>…</button>) ====== */
+.list-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;                          /* khoảng cách icon – text */
+  width: 100%;
+  padding: 14px 18px;
+  margin: 10px 0;
+  background: #1a2560;
+  border: 1px solid #2e3c88;
+  border-radius: 12px;
+  color: #f7f9ff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: transform .15s ease, box-shadow .2s ease, background .15s ease;
+}
+
+.list-container button:hover {
+  background: #24348f;
+  border-color: #3a4ecf;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(42, 60, 150, 0.35);
+}
+
+.list-container button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Icon trong nút (nếu có) */
+.list-container button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: inline-block;
+}
+
+/* ====== Khu vực webview ====== */
+#webContainer {
+  display: none;         /* ẩn lúc đầu */
+  width: 100%;
+  height: 100%;
+  flex: 1;               /* khi hiện lên sẽ chiếm full */
+}
+
+#myWeb {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#exitAppBtn {
+  position: fixed;
+  bottom: 5px !important;     /* 👈 dưới cùng */
+  right: 15px;      /* 👈 bên phải */
+  z-index: 10000;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#exitAppBtn:hover {
+  background: #c0392b;
+}
+
+#exitAppBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.exit-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.exit-modal-content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.exit-modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+
+
+/* Hiệu ứng vào màn */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .list-container {
+    width: 92%;
+    padding: 22px 16px;
+  }
+  .list-container h2 {
+    font-size: 20px;
+    letter-spacing: 0.4px;
+  }
+  .list-container button {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+}

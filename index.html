@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hệ thống giám sát khoa AI</title>
+
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- LOGIN -->
+    <div id="loginContainer" class="login-container">
+      <h2>Đăng nhập hệ thống AI</h2>
+      <input id="username" placeholder="Tên đăng nhập" />
+      <input id="password" type="password" placeholder="Mật khẩu" />
+      <button id="loginBtn">Đăng nhập</button>
+      <p id="loginError"></p>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container" id="mainContainer" style="display: none">
+      <div class="list-container">
+        <h2>Danh sách trang web</h2>
+
+        <button data-url="https://aiservice2.ptit.edu.vn/python">Python</button>
+        <button data-url="https://aiservice2.ptit.edu.vn/trr">
+          Toán rời rạc
+        </button>
+        <button data-url="https://aichallenge.ptit.edu.vn">AI Challenge</button>
+      </div>
+
+      <div id="webContainer" style="display: none">
+        <webview
+          id="myWeb"
+          style="width: 100%; height: 100%"
+          partition="persist:exam"
+        >
+        </webview>
+      </div>
+    </div>
+
+    <!-- NÚT THOÁT APP -->
+    <button id="exitAppBtn">✖</button>
+
+    <!-- MODAL XÁC NHẬN THOÁT -->
+    <div id="exitModal" class="exit-modal">
+      <div class="exit-modal-content">
+        <h3>Xác nhận thoát</h3>
+        <p>Nhập <b>ok</b> để thoát hệ thống</p>
+
+        <input id="confirmInput" placeholder="Nhập ok..." />
+        <p id="errorText" class="error"></p>
+
+        <div class="actions">
+          <button id="cancelExit">Hủy</button>
+          <button id="confirmExit">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/login.js" defer></script>
+    <script src="js/webview.js" defer></script>
+    <script src="js/tracker.js" defer></script>
+    <script src="js/exit.js" defer></script>
+  </body>
+</html>
