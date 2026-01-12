@@ -39,7 +39,7 @@ buttons.forEach(btn => {
       localStorage.setItem("subject", subject);
       window.api.setSubject(subject);
 
-      // ⛔ đánh dấu vừa vào môn (chống log nhầm)
+      // đánh dấu vừa vào môn (chống log nhầm)
       justEnteredSubject = true;
       shrinkLogged = false;
 
@@ -99,11 +99,11 @@ async function updateWindowInfo() {
   }
 }
 
-setInterval(updateWindowInfo, 50);
+setInterval(updateWindowInfo, 500);
 
 /* ===== LOG THU NHỎ MÀN HÌNH ===== */
 window.api.onWindowShrinked(async ({ subject }) => {
-  // ⛔ chặn log nhầm khi mới vào môn
+  // chặn log nhầm khi mới vào môn
   if (shrinkLogged || justEnteredSubject) return;
 
   try {
@@ -130,7 +130,7 @@ window.api.onWindowShrinked(async ({ subject }) => {
     });
 
     shrinkLogged = true;
-    console.log("✅ Log thu nhỏ màn hình");
+    console.log("Log thu nhỏ màn hình");
 
   } catch (e) {
     console.error("Shrink log error:", e);

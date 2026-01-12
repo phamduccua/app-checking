@@ -2,7 +2,7 @@
   "devDependencies": {
     "bytenode": "^1.5.7",
     "csso": "^5.0.5",
-    "electron": "^26.2.0",
+    "electron": "^26.6.10",
     "electron-packager": "^17.1.2",
     "fs-extra": "^11.3.2",
     "html-minifier-terser": "^7.2.0",

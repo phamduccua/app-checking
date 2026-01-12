@@ -118,7 +118,7 @@ async function updateWindowInfo() {
   });
 }
 
-setInterval(updateWindowInfo, 100);
+setInterval(updateWindowInfo, 1000);
 
 /* ================== SHRINK LOG ================== */
 window.api.onWindowShrinked(async ({ subject }) => {
