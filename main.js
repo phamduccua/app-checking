@@ -40,7 +40,7 @@ function createWindow() {
   mainWindow.on("unmaximize", checkWindowState);
   mainWindow.on("resize", checkWindowState);
 
-  /* ===== CLICK ❌ ===== */
+  /* ===== CLICK ===== */
   mainWindow.on("close", (e) => {
     if (allowClose || !subject) return;
     e.preventDefault();
